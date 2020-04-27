@@ -29,7 +29,7 @@ md.use(externalLink, {
 ```
 
 Or With Docusaurus:
-```
+```javascript
 const externalLink = require('remarkable-external-link');
 const siteConfig = {
   ...
