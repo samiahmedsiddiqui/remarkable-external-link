@@ -1,0 +1,29 @@
+{
+  "name": "remarkable-external-link",
+  "version": "1.0.0",
+  "description": "Remarkable plugin adds `target` and `rel` attributes on external links.",
+  "main": "index.js",
+  "files": [
+    "LICENSE",
+    "index.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samiahmedsiddiqui/remarkable-external-link.git"
+  },
+  "keywords": [
+    "remarkable",
+    "plugin",
+    "external-link",
+    "docusaurus-external-link"
+  ],
+  "author": "Sami Ahmed Siddiqui <sami.siddiqui@yasglobal.com> (https://www.yasglobal.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samiahmedsiddiqui/remarkable-external-link/issues"
+  },
+  "homepage": "https://github.com/samiahmedsiddiqui/remarkable-external-link#readme"
+}
