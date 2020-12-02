@@ -13,7 +13,11 @@ function remarkableExternalLink (md, options) {
 
   config = Object.assign({}, defaultOptions, options);
   if (config.host) {
-    configHost = url.parse(config.host).host;
+    if (config.host.indexOf('http://') === 0 || config.host.indexOf('https://') === 0) {
+      configHost = url.parse(config.host).host;
+    } else {
+      configHost = url.parse('http://' + config.host).host;
+    }
   }
 
   md.renderer.rules.link_open = function (tokens, idx) {
@@ -29,6 +33,7 @@ function remarkableExternalLink (md, options) {
           } else {
             result = result.replace('>', ' target="' + config.target + '">');
           }
+
           if (tokens[idx].rel) {
             result = result.replace('rel="' + tokens[idx].rel + '"', 'rel="' + config.rel + '">');
           } else {
