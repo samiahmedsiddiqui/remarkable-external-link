@@ -4,7 +4,7 @@ var url = require('url');
 
 function remarkableExternalLink (md, options) {
   var config;
-  var configHost = '';
+  var configHosts = [];
   var defaultOptions = {
     target: '_blank',
     rel: 'nofollow noreferrer noopener'
@@ -12,11 +12,21 @@ function remarkableExternalLink (md, options) {
   var defaultRender = md.renderer.rules.link_open;
 
   config = Object.assign({}, defaultOptions, options);
-  if (config.host) {
-    if (config.host.indexOf('http://') === 0 || config.host.indexOf('https://') === 0) {
-      configHost = url.parse(config.host).host;
-    } else {
-      configHost = url.parse('http://' + config.host).host;
+  if (config.hosts) {
+    for (const singleHost of config.hosts) {
+      if (singleHost.indexOf('http://') === 0 || singleHost.indexOf('https://') === 0) {
+        configHosts.push(url.parse(singleHost).host);
+      } else {
+        configHosts.push(url.parse('http://' + singleHost).host);
+      }
+    }
+  } else {
+    if (config.host) {
+      if (config.host.indexOf('http://') === 0 || config.host.indexOf('https://') === 0) {
+        configHosts.push(url.parse(config.host).host);
+      } else {
+        configHosts.push(url.parse('http://' + config.host).host);
+      }
     }
   }
 
@@ -27,7 +37,7 @@ function remarkableExternalLink (md, options) {
     if (tokens[idx] && tokens[idx].href) {
       href = url.parse(tokens[idx].href);
       if (href.host) {
-        if (configHost === '' || href.host !== configHost) {
+        if (configHosts.length === 0 || !configHosts.includes(href.host)) {
           if (tokens[idx].target) {
             result = result.replace('target="' + tokens[idx].target + '"', 'target="' + config.target + '">');
           } else {
