@@ -2,7 +2,7 @@
 
 var url = require('url');
 
-function remarkableExternalLink (md, options) {
+function remarkableExternalLink(md, options) {
   var config;
   var configHosts = [];
   var defaultOptions = {
@@ -38,17 +38,7 @@ function remarkableExternalLink (md, options) {
       href = url.parse(tokens[idx].href);
       if (href.host) {
         if (configHosts.length === 0 || !configHosts.includes(href.host)) {
-          if (tokens[idx].target) {
-            result = result.replace('target="' + tokens[idx].target + '"', 'target="' + config.target + '">');
-          } else {
-            result = result.replace('>', ' target="' + config.target + '">');
-          }
-
-          if (tokens[idx].rel) {
-            result = result.replace('rel="' + tokens[idx].rel + '"', 'rel="' + config.rel + '">');
-          } else {
-            result = result.replace('>', ' rel="' + config.rel + '">');
-          }
+          result = result.replace('>', ' target="' + config.target + '" rel="' + config.rel + '">');
         }
       }
     }
