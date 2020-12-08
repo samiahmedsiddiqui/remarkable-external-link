@@ -14,11 +14,13 @@ environment:
 
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm install --dev
+  - npm install
 
 test_script:
   - node --version
   - npm --version
+
+test:
   - cmd: npm run lint
   - cmd: npm run test:single
   - cmd: npm run test:subdomain
