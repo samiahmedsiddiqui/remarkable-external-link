@@ -18,6 +18,10 @@ os:
 
 stages:
   - ESLint test
+    if: |
+      node -v = 10 \
+      OR node -v = 11 \
+
   - Code test
 
 jobs:
