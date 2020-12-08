@@ -19,13 +19,6 @@ os:
 jobs:
   include:
     - stage: ESLint test
-      node_js:
-        - 10
-        - 11
-        - 12
-        - 13
-        - 14
-        - node
       script: npm run lint
     - stage: Single Domain test
       script:
