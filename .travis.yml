@@ -1,11 +1,6 @@
-sudo: false
-
+dist: xenial
 language: node_js
 node_js:
-  - 6
-  - 7
-  - 8
-  - 9
   - 10
   - 11
   - 12
@@ -15,19 +10,9 @@ node_js:
 os:
   - linux
   - osx
-
-jobs:
-  include:
-    - stage: ESLint test
-      node_js:
-        - 10
-        - 11
-        - 12
-        - 13
-        - 14
-        - node
-      script: npm run lint
-    - stage: Single Domain test
-      script:
-        - npm run test:single
-        - npm run test:subdomain
+install:
+  npm install --dev
+script:
+  - npm run lint
+  - npm run test:single
+  - npm run test:subdomain
