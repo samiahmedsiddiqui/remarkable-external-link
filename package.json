@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "test": "node test/single-domain.js && node test/subdomain.js"
+    "test:single": "node test/single-domain.js",
+    "test:subdomain": "node test/subdomain.js"
   },
   "repository": {
     "type": "git",

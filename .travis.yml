@@ -13,3 +13,9 @@ node_js:
 os:
   - linux
   - osx
+install:
+  npm install --dev
+script:
+  - npm run lint
+  - npm run test:single
+  - npm run test:subdomain
