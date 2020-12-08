@@ -1,13 +1,14 @@
 {
   "name": "remarkable-external-link",
-  "version": "1.0.0",
   "description": "Remarkable plugin adds `target` and `rel` attributes on external links.",
+  "version": "1.0.0",
   "main": "index.js",
   "files": [
     "LICENSE",
     "index.js"
   ],
   "scripts": {
+    "lint": "eslint .",
     "test": "node test/single-domain.js && node test/subdomain.js"
   },
   "repository": {
@@ -26,8 +27,9 @@
     "url": "https://github.com/samiahmedsiddiqui/remarkable-external-link/issues"
   },
   "homepage": "https://github.com/samiahmedsiddiqui/remarkable-external-link#readme",
+  "runkitExampleFilename": "test/runkitExample.js",
   "devDependencies": {
+    "eslint": "^7.15.0",
     "remarkable": "^2.0.1"
-  },
-  "runkitExampleFilename": "test/runkitExample.js"
+  }
 }
