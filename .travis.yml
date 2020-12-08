@@ -1,3 +1,4 @@
+dist: xenial
 language: node_js
 node_js:
   - 6
@@ -26,7 +27,7 @@ jobs:
   include:
     - stage: ESLint test
 
-      script: console.log(TRAVIS_NODE_VERSION) && npm run lint
+      script: console.log('version',TRAVIS_NODE_VERSION)
     - stage: Code test
       script:
         - npm run test:single
