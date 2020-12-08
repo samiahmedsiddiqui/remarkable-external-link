@@ -16,11 +16,15 @@ os:
   - linux
   - osx
 
+stages:
+  - ESLint test
+  - Code test
+
 jobs:
   include:
     - stage: ESLint test
       script: npm run lint
-    - stage: Single Domain test
+    - stage: Code test
       script:
         - npm run test:single
         - npm run test:subdomain
