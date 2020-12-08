@@ -58,10 +58,10 @@ const siteConfig = {
 
 ## Parameters
 
-| Attributes |  Type  | Required |             Default            |                                                     Description                                                    |
-|:----------:|:------:|:--------:|:------------------------------:|:------------------------------------------------------------------------------------------------------------------:|
+| Attributes |  Type  | Required |             Default            | Description                                                                                                        |
+|:----------:|:------:|:--------:|:------------------------------:|--------------------------------------------------------------------------------------------------------------------|
 |    hosts   |  Array |    Yes   |                                | Site hostname to detect external links.<br><br>You can add a single domain as well as list of domains(subdomains). |
-|    host    | String |    Yes   |                                | **Deprecated**.<br><br>Site hostname to detect external links.                                                         |
+|    host    | String |    Yes   |                                | **Deprecated**.<br><br>Site hostname to detect external links.                                                     |
 |   target   | String |    No    |            `_blank`            | Specifies where to open the linked document.                                                                       |
 |     rel    | String |    No    | `nofollow noreferrer noopener` | Specifies the relationship between the current document and the linked document.                                   |
 
