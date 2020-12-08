@@ -1,15 +1,16 @@
 'use strict';
 
-var url = require('url');
+const url = require('url');
 
 function remarkableExternalLink(md, options) {
-  var config;
-  var configHosts = [];
-  var defaultOptions = {
+  const defaultOptions = {
     target: '_blank',
     rel: 'nofollow noreferrer noopener'
   };
-  var defaultRender = md.renderer.rules.link_open;
+  const defaultRender = md.renderer.rules.link_open;
+
+  var config;
+  var configHosts = [];
 
   config = Object.assign({}, defaultOptions, options);
   if (config.hosts) {
@@ -31,11 +32,10 @@ function remarkableExternalLink(md, options) {
   }
 
   md.renderer.rules.link_open = function (tokens, idx) {
-    var href = '';
     var result = defaultRender.apply(null, arguments);
 
     if (tokens[idx] && tokens[idx].href) {
-      href = url.parse(tokens[idx].href);
+      const href = url.parse(tokens[idx].href);
       if (href.host) {
         if (configHosts.length === 0 || !configHosts.includes(href.host)) {
           result = result.replace('>', ' target="' + config.target + '" rel="' + config.rel + '">');
