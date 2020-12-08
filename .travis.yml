@@ -19,8 +19,8 @@ os:
 stages:
   - ESLint test
     if: |
-      node -v = 10 \
-      OR node -v = 11 \
+      TRAVIS_NODE_VERSION = 10 \
+      OR TRAVIS_NODE_VERSION = 11 \
 
   - Code test
 
