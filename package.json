@@ -1,7 +1,7 @@
 {
   "name": "remarkable-external-link",
   "description": "Remarkable plugin adds `target` and `rel` attributes on external links.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "files": [
     "LICENSE",
