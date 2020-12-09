@@ -7,4 +7,4 @@
 # Remove files using `git archive`.
 /.*          export-ignore
 appveyor.yml export-ignore
-/test/*      export-ignore
+/test        export-ignore
