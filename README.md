@@ -24,7 +24,7 @@ yarn add remarkable-external-link --dev
 
 ```javascript
 const { Remarkable } = require('remarkable');
-const externalLink = require('../index');
+const externalLink = require('remarkable-external-link');
 const md = new Remarkable();
 
 const testString = 'This is an [Example](http://example.com) link, [Google](https://google.com) link, [Facebook](https://facebook.com) link, [Test Example](http://test.example.com/) link, [Test2 Example](http://test2.example.com/) link and [Relative](/docs/concept/) link.';
