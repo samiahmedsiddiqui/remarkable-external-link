@@ -1,8 +1,8 @@
 # remarkable-external-link
 
-[![Build Status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
+[![AppVeyor Build Status][appveyor-image]][appveyor-url]
 
 [Remarkable](https://www.npmjs.com/package/remarkable) plugin adds `target` and `rel` attributes on external links.
 
@@ -64,14 +64,18 @@ const siteConfig = {
 
 ## Parameters
 
-| Attributes |  Type  | Required |             Default            | Description                                                                                                        |
-|:----------:|:------:|:--------:|:------------------------------:|--------------------------------------------------------------------------------------------------------------------|
-|    hosts   |  Array |    Yes   |                                | Site hostname(s) to detect external links. |
-|   target   | String |    No    |            `_blank`            | Specifies where to open the linked document.                                                                       |
-|     rel    | String |    No    | `nofollow noreferrer noopener` | Specifies the relationship between the current document and the linked document.                                   |
+| Attributes |  Type  | Required |             Default            | Description                                                                      |
+|:----------:|:------:|:--------:|:------------------------------:|----------------------------------------------------------------------------------|
+|    hosts   |  Array |    Yes   |                                | Site hostname(s) to detect external links.                                       |
+|   target   | String |    No    |            `_blank`            | Specifies where to open the linked document.                                     |
+|     rel    | String |    No    | `nofollow noreferrer noopener` | Specifies the relationship between the current document and the linked document. |
 
 [npm-image]: https://img.shields.io/npm/v/remarkable-external-link.svg
 [npm-url]: https://www.npmjs.com/package/remarkable-external-link
 [downloads-image]: https://img.shields.io/npm/dm/remarkable-external-link.svg
+
 [travis-image]: https://api.travis-ci.com/samiahmedsiddiqui/remarkable-external-link.svg?branch=master
 [travis-url]: https://travis-ci.com/samiahmedsiddiqui/remarkable-external-link
+
+[appveyor-url]: https://ci.appveyor.com/project/samiahmedsiddiqui/remarkable-external-link
+[appveyor-image]: https://img.shields.io/appveyor/ci/samiahmedsiddiqui/remarkable-external-link.svg?label=appveyor
