@@ -2,6 +2,7 @@
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
 [![AppVeyor Build Status][appveyor-image]][appveyor-url]
 
 [Remarkable](https://www.npmjs.com/package/remarkable) plugin adds `target` and `rel` attributes on external links.
@@ -74,8 +75,8 @@ const siteConfig = {
 [npm-url]: https://www.npmjs.com/package/remarkable-external-link
 [downloads-image]: https://img.shields.io/npm/dm/remarkable-external-link.svg
 
-[travis-image]: https://api.travis-ci.com/samiahmedsiddiqui/remarkable-external-link.svg?branch=master
-[travis-url]: https://travis-ci.com/samiahmedsiddiqui/remarkable-external-link
+[travis-image]: https://travis-ci.org/samiahmedsiddiqui/remarkable-external-link.svg?branch=master
+[travis-url]: https://travis-ci.org/github/samiahmedsiddiqui/remarkable-external-link
 
 [appveyor-url]: https://ci.appveyor.com/project/samiahmedsiddiqui/remarkable-external-link
 [appveyor-image]: https://img.shields.io/appveyor/ci/samiahmedsiddiqui/remarkable-external-link.svg?label=appveyor
