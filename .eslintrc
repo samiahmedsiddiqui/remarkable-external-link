@@ -1,0 +1,26 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/recommended"
+      ]
+    }
+  ]
+}

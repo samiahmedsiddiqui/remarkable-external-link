@@ -1,49 +1,51 @@
-'use strict';
-
-const url = require('url');
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const url_1 = require("url");
 function remarkableExternalLink(md, options) {
-  const defaultOptions = {
-    'rel': 'nofollow noreferrer noopener',
-    'target': '_blank'
-  };
-  const defaultRender = md.renderer.rules.link_open;
-  const config = Object.assign({}, defaultOptions, options);
-
-  var configHosts = [];
-
-  if (config.hosts) {
-    for (const singleHost of config.hosts) {
-      if (singleHost.indexOf('http://') === 0 || singleHost.indexOf('https://') === 0) {
-        configHosts.push(url.parse(singleHost).host);
-      } else {
-        configHosts.push(url.parse('http://' + singleHost).host);
-      }
-    }
-  } else if (config.host) {
-    if (config.host.indexOf('http://') === 0 || config.host.indexOf('https://') === 0) {
-      configHosts.push(url.parse(config.host).host);
-    } else {
-      configHosts.push(url.parse('http://' + config.host).host);
-    }
-  }
-
-  // eslint-disable-next-line camelcase
-  md.renderer.rules.link_open = function(tokens, idx) {
-    var result = defaultRender(...arguments);
-
-    if (tokens[idx] && tokens[idx].href) {
-      const href = url.parse(tokens[idx].href);
-      if (href.host) {
-        if (configHosts.length === 0 || !configHosts.includes(href.host)) {
-          // eslint-disable-next-line max-len
-          result = result.replace('>', ' target="' + config.target + '" rel="' + config.rel + '">');
+    const configHosts = [];
+    const defaultOptions = {
+        'rel': 'nofollow noreferrer noopener',
+        'target': '_blank'
+    };
+    const defaultRender = md.renderer.rules.link_open;
+    const finalConfig = Object.assign({}, defaultOptions, options);
+    if (finalConfig.hosts) {
+        let singleHost;
+        for (singleHost of finalConfig.hosts) {
+            if (singleHost.indexOf('http://') === 0 || singleHost.indexOf('https://') === 0) {
+                configHosts.push(new url_1.URL(singleHost).hostname);
+            }
+            else {
+                configHosts.push(singleHost);
+            }
         }
-      }
     }
-
-    return result;
-  };
+    else if (finalConfig.host) {
+        if (finalConfig.host.indexOf('http://') === 0 || finalConfig.host.indexOf('https://') === 0) {
+            configHosts.push(new url_1.URL(finalConfig.host).hostname);
+        }
+        else {
+            configHosts.push(finalConfig.host);
+        }
+    }
+    md.renderer.rules.link_open = function (tokens, idx, ...args) {
+        let result = defaultRender(tokens, idx, ...args);
+        if (tokens[idx] && tokens[idx].href) {
+            const urlHref = tokens[idx].href;
+            let origin = '';
+            if (urlHref.indexOf('http://') === 0 || urlHref.indexOf('https://') === 0) {
+                origin = new url_1.URL(urlHref).hostname;
+            }
+            else if (urlHref.indexOf('://') === 0) {
+                origin = new url_1.URL('https' + urlHref).hostname;
+            }
+            if (origin) {
+                if (configHosts.length === 0 || configHosts.indexOf(origin) === -1) {
+                    result = result.replace('>', ' target="' + finalConfig.target + '" rel="' + finalConfig.rel + '">');
+                }
+            }
+        }
+        return result;
+    };
 }
-
-module.exports = remarkableExternalLink;
+exports.default = remarkableExternalLink;

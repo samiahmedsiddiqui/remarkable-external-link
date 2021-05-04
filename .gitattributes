@@ -2,9 +2,12 @@
 * text=auto
 
 # Declare files that will always have LF line endings on checkout.
-*.js text eol=lf
+*.ts text eol=lf
 
-# Remove files using `git archive`.
-/.*          export-ignore
-appveyor.yml export-ignore
-/test        export-ignore
+# Remove files for archives generated using `git archive`.
+.*                     export-ignore
+appveyor.yml           export-ignore
+src                    export-ignore
+test/link.js           export-ignore
+tsconfig.json          export-ignore
+types/index.test-d.ts  export-ignore
