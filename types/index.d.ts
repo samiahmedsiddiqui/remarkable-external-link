@@ -7,6 +7,11 @@ export type configOptions = {
   host?: string;
   target?: string;
   rel?: string;
+  textExtOnly?: boolean;
+  preOutside?: string;
+  preInside?: string;
+  postInside?: string;
+  postOutside?: string;
 };
 
 export type defaultOptions = {
