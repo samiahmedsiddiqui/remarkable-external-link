@@ -41,11 +41,11 @@ describe('Test `external` links', () => {
         'http://example.com',
         'http://test.example.com'
       ],
-      'textExtOnly': true,
-      'preOutside': '[',
-      'preInside': '-= ',
-      'postInside': ' =-',
-      'postOutside': '] (ext)',
+      'externalOnly': true,
+      'beforeLink': '[',
+      'beforeLinkText': '-= ',
+      'afterLinkText': ' =-',
+      'afterLink': '] (ext)',
     });
 
     assert.strictEqual(md.render(testString), expectedOutput);
@@ -60,11 +60,11 @@ describe('Test `external` links', () => {
         'http://example.com',
         'http://test.example.com'
       ],
-      'textExtOnly': false,
-      'preOutside': '[',
-      'preInside': '-= ',
-      'postInside': ' =-',
-      'postOutside': '] (ext)',
+      'externalOnly': false,
+      'beforeLink': '[',
+      'beforeLinkText': '-= ',
+      'afterLinkText': ' =-',
+      'afterLink': '] (ext)',
     });
 
     assert.strictEqual(md.render(testString), expectedOutput);

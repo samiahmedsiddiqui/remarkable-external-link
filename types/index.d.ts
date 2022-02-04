@@ -7,11 +7,11 @@ export type configOptions = {
   host?: string;
   target?: string;
   rel?: string;
-  textExtOnly?: boolean;
-  preOutside?: string;
-  preInside?: string;
-  postInside?: string;
-  postOutside?: string;
+  externalOnly?: boolean;
+  beforeLink?: string;
+  beforeLinkText?: string;
+  afterLinkText?: string;
+  afterLink?: string;
 };
 
 export type defaultOptions = {

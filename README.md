@@ -67,10 +67,10 @@ Or with text insertions...
 
 ```javascript
 md.use(remarkableExternalLink, {
-  'preOutside': '[',
-  'preInside': '-=',
-  'postInside': '=-',
-  'postOutside': '] (ext)',
+  'beforeLink': '[',
+  'beforeLinkText': '-=',
+  'afterLinkText': '=-',
+  'afterLink': '] (ext)',
 });
 
 
@@ -93,17 +93,17 @@ to
 
 ## Parameters
 
-| Attributes  |  Type  | Required |             Default            | Description                                                                      |
-|:-----------:|:------:|:--------:|:------------------------------:|----------------------------------------------------------------------------------|
-|    hosts    |  Array |    No    |              []                | Site hostname(s) to detect external links.                                       |
-|    host     | String |    No    |              null              | Single site hostname( to detect external links (ignored if hosts is provided)    |
-|   target    | String |    No    |            `_blank`            | Specifies where to open the linked document.                                     |
-|     rel     | String |    No    | `nofollow noreferrer noopener` | Specifies the relationship between the current document and the linked document. |
-| textExtOnly | String |    No    |              true              | Prepend / append text only to external links.                                    |
-|  preOutside | String |    No    |              null              | Specifies HTML to be inserted before an external link.                           |
-|  preInside  | String |    No    |              null              | Specifies HTML to be inserted at the start of the text within an external link.  |
-|  postInside | String |    No    |              null              | Specifies HTML to be inserted at the end of the text within an external link.    |
-| postOutside | String |    No    |              null              | Specifies HTML to be inserted after an external link.                            |
+|   Attributes   |  Type  | Required |             Default            | Description                                                                      |
+|:--=-----------:|:------:|:--------:|:------------------------------:|----------------------------------------------------------------------------------|
+|     hosts      |  Array |    No    |              []                | Site hostname(s) to detect external links.                                       |
+|     host       | String |    No    |              null              | Single site hostname( to detect external links (ignored if hosts is provided)    |
+|    target      | String |    No    |            `_blank`            | Specifies where to open the linked document.                                     |
+|      rel       | String |    No    | `nofollow noreferrer noopener` | Specifies the relationship between the current document and the linked document. |
+| externalOnly   | String |    No    |              true              | Prepend / append text only to external links.                                    |
+|   beforeLink   | String |    No    |              null              | Specifies HTML to be inserted before an external link.                           |
+| beforeLinkText | String |    No    |              null              | Specifies HTML to be inserted at the start of the text within an external link.  |
+| afterLinkText  | String |    No    |              null              | Specifies HTML to be inserted at the end of the text within an external link.    |
+|    afterLink   | String |    No    |              null              | Specifies HTML to be inserted after an external link.                            |
 
 [npm-image]: https://img.shields.io/npm/v/remarkable-external-link.svg
 [npm-url]: https://www.npmjs.com/package/remarkable-external-link

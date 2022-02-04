@@ -32,10 +32,10 @@ const md = new Remarkable();
   const testString = 'This is an [Example](http://example.com) link';
 
   md.use(remarkableExternalLink, {
-    'preOutside': '[',
-    'preInside': '-= ',
-    'postInside': ' =-',
-    'postOutside': ']',
+    'beforeLink': '[',
+    'beforeLinkText': '-= ',
+    'afterLinkText': ' =-',
+    'afterLink': ']',
   });
 
   const output = md.render(testString);
@@ -44,4 +44,5 @@ const md = new Remarkable();
   } else {
     console.error('Text insertion Test Failed.');
   }
-}
+}afterLinkText
+afterLink

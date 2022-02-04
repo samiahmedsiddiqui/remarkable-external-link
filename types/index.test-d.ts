@@ -17,11 +17,11 @@ const singleHost = {
 };
 
 const insertText = {
-  'textExtOnly': false,
-  'preOutside': '[',
-  'preInside': '-= ',
-  'postInside': ' =-',
-  'postOutside': '] (ext)',
+  'externalOnly': false,
+  'beforeLink': '[',
+  'beforeLinkText': '-= ',
+  'afterLinkText': ' =-',
+  'afterLink': '] (ext)',
 };
 
 if (singleHost) {

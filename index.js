@@ -9,7 +9,7 @@ function remarkableExternalLink(md, options) {
     const defaultOptions = {
         'rel': 'nofollow noreferrer noopener',
         'target': '_blank',
-        textExtOnly: true,
+        externalOnly: true,
     };
     const defaultOpenRender = md.renderer.rules.link_open;
     const defaultCloseRender = md.renderer.rules.link_close;
@@ -55,8 +55,8 @@ function remarkableExternalLink(md, options) {
         }
 
         linkExternalStack.push(externalLink);
-        result = externalLink || !finalConfig.textExtOnly
-            ? (options.preOutside || "") + result + (options.preInside || "")
+        result = externalLink || !finalConfig.externalOnly
+            ? (options.beforeLink || "") + result + (options.beforeLinkText || "")
             : result;
         return result;
     };
@@ -64,8 +64,8 @@ function remarkableExternalLink(md, options) {
     md.renderer.rules.link_close = function (tokens, idx, ...args) {
       let result = defaultCloseRender(tokens, idx, ...args);
       const externalLink = linkExternalStack.pop();
-      result = externalLink || !finalConfig.textExtOnly
-          ? (options.postInside || "") + result + (options.postOutside || "")
+      result = externalLink || !finalConfig.externalOnly
+          ? (options.afterLinkText || "") + result + (options.afterLink || "")
           : result;
       return result;
     }
