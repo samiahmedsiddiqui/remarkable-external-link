@@ -44,5 +44,4 @@ const md = new Remarkable();
   } else {
     console.error('Text insertion Test Failed.');
   }
-}afterLinkText
-afterLink
+}
