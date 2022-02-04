@@ -7,7 +7,7 @@ const linkExternalStack: Array<boolean> = [];
 export default function remarkableExternalLink(md: Remarkable, options: types.configOptions): void {
   const configHosts: Array<string> = [];
   const defaultOptions: types.defaultOptions = {
-    'rel': 'nofollow noreferrer noopener',
+    'rel': 'noopener',
     'target': '_blank',
     'externalOnly': true,
   };

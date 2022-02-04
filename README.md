@@ -92,16 +92,16 @@ to
 
 ## Parameters
 
-|   Attributes   |  Type  | Required |             Default            |                                    Description                                   |
-|:--------------:|:------:|:--------:|:------------------------------:|:--------------------------------------------------------------------------------:|
-|      hosts     |  Array |    Yes   |               []               | Site hostname(s) to detect external links.                                       |
-|     target     | String |    No    |            `_blank`            | Specifies where to open the linked document.                                     |
-|       rel      | String |    No    | `nofollow noreferrer noopener` | Specifies the relationship between the current document and the linked document. |
-|  externalOnly  | String |    No    |              true              | Prepend / append text only to external links.                                    |
-|   beforeLink   | String |    No    |              null              | Specifies Text / HTML to be inserted before a link.                              |
-| beforeLinkText | String |    No    |              null              | Specifies Text / HTML to be inserted at the start of the text within a link.     |
-|  afterLinkText | String |    No    |              null              | Specifies Text / HTML to be inserted at the end of the text within a link.Text / |
-|    afterLink   | String |    No    |              null              | Specifies Text / HTML to be inserted after a link.                               |
+|   Attributes   |  Type  | Required |   Default  |                                    Description                                   |
+|:--------------:|:------:|:--------:|:----------:|:--------------------------------------------------------------------------------:|
+|      hosts     |  Array |    Yes   |     []     | Site hostname(s) to detect external links.                                       |
+|     target     | String |    No    |  `_blank`  | Specifies where to open the linked document.                                     |
+|       rel      | String |    No    | `noopener` | Specifies the relationship between the current document and the linked document. |
+|  externalOnly  | String |    No    |    true    | Prepend / append text only to external links.                                    |
+|   beforeLink   | String |    No    |    null    | Specifies Text / HTML to be inserted before a link.                              |
+| beforeLinkText | String |    No    |    null    | Specifies Text / HTML to be inserted at the start of the text within a link.     |
+|  afterLinkText | String |    No    |    null    | Specifies Text / HTML to be inserted at the end of the text within a link.       |
+|    afterLink   | String |    No    |    null    | Specifies Text / HTML to be inserted after a link.                               |
 
 [npm-image]: https://img.shields.io/npm/v/remarkable-external-link.svg
 [npm-url]: https://www.npmjs.com/package/remarkable-external-link

@@ -5,7 +5,7 @@ const linkExternalStack = [];
 function remarkableExternalLink(md, options) {
     const configHosts = [];
     const defaultOptions = {
-        'rel': 'nofollow noreferrer noopener',
+        'rel': 'noopener',
         'target': '_blank',
         'externalOnly': true,
     };
