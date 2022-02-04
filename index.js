@@ -55,18 +55,16 @@ function remarkableExternalLink(md, options) {
         }
 
         linkExternalStack.push(externalLink);
-        result = externalLink || !finalConfig.externalOnly
-            ? (options.beforeLink || "") + result + (options.beforeLinkText || "")
-            : result;
+        if (externalLink || !finalConfig.externalOnly)
+          result = (options.beforeLink || "") + result + (options.beforeLinkText || "");
         return result;
     };
 
     md.renderer.rules.link_close = function (tokens, idx, ...args) {
       let result = defaultCloseRender(tokens, idx, ...args);
       const externalLink = linkExternalStack.pop();
-      result = externalLink || !finalConfig.externalOnly
-          ? (options.afterLinkText || "") + result + (options.afterLink || "")
-          : result;
+      if (externalLink || !finalConfig.externalOnly)
+        result = (options.afterLinkText || "") + result + (options.afterLink || "");
       return result;
     }
 }
