@@ -1,11 +1,16 @@
+version: "{build}"
+
+# branches to build
+branches:
+  only:
+    - main
+
 environment:
   matrix:
     # node.js
-    - nodejs_version: "10"
-    - nodejs_version: "11"
     - nodejs_version: "12"
-    - nodejs_version: "13"
     - nodejs_version: "14"
+    - nodejs_version: "16"
     - nodejs_version: ""
 
 install:
@@ -14,8 +19,6 @@ install:
 
 test_script:
   - npm run lint
-  - npm run test:link
+  - npm run test
 
 build: off
-
-version: "{build}"

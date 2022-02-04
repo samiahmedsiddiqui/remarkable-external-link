@@ -1,13 +1,13 @@
 {
   "name": "remarkable-external-link",
   "description": "Remarkable plugin that adds `target` and `rel` attributes on external links. Also, provide ability to insert text/html inside and/or outside a link.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "index.js",
   "types": "types/index.d.ts",
   "files": [
     "LICENSE",
     "index.js",
-    "test/runkitExample.js",
+    "runkitExample.js",
     "types/index.d.ts"
   ],
   "scripts": {
