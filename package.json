@@ -15,8 +15,9 @@
     "lint": "eslint .",
     "lint:js": "eslint . --ext .js",
     "lint:ts": "eslint . --ext .ts",
-    "test": "npm run test:link && npm run test:tsd",
+    "test": "npm run test:link && npm run test:link-text && npm run test:tsd",
     "test:link": "mocha test/link.js",
+    "test:link-text": "mocha test/link-text.js",
     "test:tsd": "npx tsd"
   },
   "repository": {
