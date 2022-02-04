@@ -17,4 +17,5 @@ export type configOptions = {
 export type defaultOptions = {
   rel: string;
   target: string;
+  externalOnly: boolean;
 };

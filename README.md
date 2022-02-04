@@ -95,8 +95,7 @@ to
 
 |   Attributes   |  Type  | Required |             Default            | Description                                                                      |
 |:--------------:|:------:|:--------:|:------------------------------:|----------------------------------------------------------------------------------|
-|     hosts      |  Array |    No    |              []                | Site hostname(s) to detect external links.                                       |
-|     host       | String |    No    |              null              | Single site hostname( to detect external links (ignored if hosts is provided)    |
+|     hosts      |  Array |   Yes    |              []                | Site hostname(s) to detect external links.                                       |
 |    target      | String |    No    |            `_blank`            | Specifies where to open the linked document.                                     |
 |      rel       | String |    No    | `nofollow noreferrer noopener` | Specifies the relationship between the current document and the linked document. |
 | externalOnly   | String |    No    |              true              | Prepend / append text only to external links.                                    |

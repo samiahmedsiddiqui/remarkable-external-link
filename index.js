@@ -1,15 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const url_1 = require("url");
-
 const linkExternalStack = [];
-
 function remarkableExternalLink(md, options) {
     const configHosts = [];
     const defaultOptions = {
         'rel': 'nofollow noreferrer noopener',
         'target': '_blank',
-        externalOnly: true,
+        'externalOnly': true,
     };
     const defaultOpenRender = md.renderer.rules.link_open;
     const defaultCloseRender = md.renderer.rules.link_close;
@@ -33,7 +31,6 @@ function remarkableExternalLink(md, options) {
             configHosts.push(finalConfig.host);
         }
     }
-
     md.renderer.rules.link_open = function (tokens, idx, ...args) {
         let result = defaultOpenRender(tokens, idx, ...args);
         let externalLink = false;
@@ -48,24 +45,22 @@ function remarkableExternalLink(md, options) {
             }
             if (origin) {
                 if (configHosts.length === 0 || configHosts.indexOf(origin) === -1) {
-                    externalLink = true;
                     result = result.replace('>', ' target="' + finalConfig.target + '" rel="' + finalConfig.rel + '">');
+                    externalLink = true;
                 }
             }
         }
-
         linkExternalStack.push(externalLink);
         if (externalLink || !finalConfig.externalOnly)
-          result = (options.beforeLink || "") + result + (options.beforeLinkText || "");
+            result = (options.beforeLink || "") + result + (options.beforeLinkText || "");
         return result;
     };
-
     md.renderer.rules.link_close = function (tokens, idx, ...args) {
-      let result = defaultCloseRender(tokens, idx, ...args);
-      const externalLink = linkExternalStack.pop();
-      if (externalLink || !finalConfig.externalOnly)
-        result = (options.afterLinkText || "") + result + (options.afterLink || "");
-      return result;
-    }
+        let result = defaultCloseRender(tokens, idx, ...args);
+        const externalLink = linkExternalStack.pop();
+        if (externalLink || !finalConfig.externalOnly)
+            result = (options.afterLinkText || "") + result + (options.afterLink || "");
+        return result;
+    };
 }
 exports.default = remarkableExternalLink;
