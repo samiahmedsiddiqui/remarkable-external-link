@@ -2,8 +2,8 @@
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
-<!-- [![Build Status][travis-image]][travis-url] -->
 [![AppVeyor Build Status][appveyor-image]][appveyor-url]
+<!-- [![Build Status][travis-image]][travis-url] -->
 
 [Remarkable](https://www.npmjs.com/package/remarkable) plugin that adds `target` and `rel` attributes on external links. It also provides ability to insert Text/HTML inside and/or outside a link for external links or for all the links (including external) depending on your configuration.
 
