@@ -2,10 +2,10 @@
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+<!-- [![Build Status][travis-image]][travis-url] -->
 [![AppVeyor Build Status][appveyor-image]][appveyor-url]
 
-[Remarkable](https://www.npmjs.com/package/remarkable) plugin adds `target` and `rel` attributes on external links plus supports insertion of text before and after each link.
+[Remarkable](https://www.npmjs.com/package/remarkable) plugin that adds `target` and `rel` attributes on external links. It also provides ability to insert Text/HTML inside and/or outside a link for external links or for all the links (including external) depending on your configuration.
 
 ## Install
 
@@ -63,7 +63,7 @@ const siteConfig = {
 }
 ```
 
-Or with text insertions...
+Or with text insertion:
 
 ```javascript
 md.use(remarkableExternalLink, {
@@ -74,42 +74,41 @@ md.use(remarkableExternalLink, {
 });
 
 
-const testString = 'This is an [Example](http://example.com) link';
+const testString = 'This is an [Example](http://example.com) link.';
 console.log(md.render(testString));
-
-// Expect
-// '<p>This is a [<a href="http://example.com">-= link =-</a>] <sub>(ext)</sub> in markdown.</p>\n'
 ```
 
-which will change the HTML display from
+Above code will change the HTML display from
 
-> <p>This is a <a href="http://example.com">link</a> in markdown.</p>
+```html
+<p>This is an [<a href="http://example.com">-= Example =-</a>] (ext) link.</p>
+```
 
 to
 
-> <p>This is a [<a href="http://example.com">-= link =-</a>] (ext) in markdown.</p>
-
-
+```html
+<p>This is an [<a href="http://example.com">-= Example =-</a>] (ext) link.</p>
+```
 
 ## Parameters
 
-|   Attributes   |  Type  | Required |             Default            | Description                                                                      |
-|:--------------:|:------:|:--------:|:------------------------------:|----------------------------------------------------------------------------------|
-|     hosts      |  Array |   Yes    |              []                | Site hostname(s) to detect external links.                                       |
-|    target      | String |    No    |            `_blank`            | Specifies where to open the linked document.                                     |
-|      rel       | String |    No    | `nofollow noreferrer noopener` | Specifies the relationship between the current document and the linked document. |
-| externalOnly   | String |    No    |              true              | Prepend / append text only to external links.                                    |
-|   beforeLink   | String |    No    |              null              | Specifies HTML to be inserted before an external link.                           |
-| beforeLinkText | String |    No    |              null              | Specifies HTML to be inserted at the start of the text within an external link.  |
-| afterLinkText  | String |    No    |              null              | Specifies HTML to be inserted at the end of the text within an external link.    |
-|    afterLink   | String |    No    |              null              | Specifies HTML to be inserted after an external link.                            |
+|   Attributes   |  Type  | Required |             Default            |                                    Description                                   |
+|:--------------:|:------:|:--------:|:------------------------------:|:--------------------------------------------------------------------------------:|
+|      hosts     |  Array |    Yes   |               []               | Site hostname(s) to detect external links.                                       |
+|     target     | String |    No    |            `_blank`            | Specifies where to open the linked document.                                     |
+|       rel      | String |    No    | `nofollow noreferrer noopener` | Specifies the relationship between the current document and the linked document. |
+|  externalOnly  | String |    No    |              true              | Prepend / append text only to external links.                                    |
+|   beforeLink   | String |    No    |              null              | Specifies Text / HTML to be inserted before a link.                              |
+| beforeLinkText | String |    No    |              null              | Specifies Text / HTML to be inserted at the start of the text within a link.     |
+|  afterLinkText | String |    No    |              null              | Specifies Text / HTML to be inserted at the end of the text within a link.Text / |
+|    afterLink   | String |    No    |              null              | Specifies Text / HTML to be inserted after a link.                               |
 
 [npm-image]: https://img.shields.io/npm/v/remarkable-external-link.svg
 [npm-url]: https://www.npmjs.com/package/remarkable-external-link
 [downloads-image]: https://img.shields.io/npm/dm/remarkable-external-link.svg
 
-[travis-image]: https://travis-ci.org/samiahmedsiddiqui/remarkable-external-link.svg?branch=master
-[travis-url]: https://travis-ci.org/github/samiahmedsiddiqui/remarkable-external-link
+<!-- [travis-image]: https://travis-ci.org/samiahmedsiddiqui/remarkable-external-link.svg?branch=master
+[travis-url]: https://travis-ci.org/github/samiahmedsiddiqui/remarkable-external-link -->
 
 [appveyor-url]: https://ci.appveyor.com/project/samiahmedsiddiqui/remarkable-external-link
 [appveyor-image]: https://img.shields.io/appveyor/ci/samiahmedsiddiqui/remarkable-external-link.svg?label=appveyor
