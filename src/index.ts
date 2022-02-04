@@ -2,13 +2,18 @@ import * as types from '../types/index.d';
 import { Remarkable } from 'remarkable';
 import { URL } from 'url';
 
+const linkExternalStack: Array<boolean> = [];
+
 export default function remarkableExternalLink(md: Remarkable, options: types.configOptions): void {
   const configHosts: Array<string> = [];
   const defaultOptions: types.defaultOptions = {
     'rel': 'nofollow noreferrer noopener',
-    'target': '_blank'
+    'target': '_blank',
+    'externalOnly': true,
   };
-  const defaultRender = md.renderer.rules.link_open;
+  const defaultOpenRender = md.renderer.rules.link_open;
+  const defaultCloseRender = md.renderer.rules.link_close;
+
   const finalConfig: types.configOptions = Object.assign({}, defaultOptions, options);
 
   if (finalConfig.hosts) {
@@ -35,7 +40,8 @@ export default function remarkableExternalLink(md: Remarkable, options: types.co
 
   // eslint-disable-next-line camelcase
   md.renderer.rules.link_open = function (tokens: Remarkable.LinkOpenToken[], idx: number, ...args: []) {
-    let result = defaultRender(tokens, idx, ...args);
+    let result = defaultOpenRender(tokens, idx, ...args);
+    let externalLink = false;
 
     if (tokens[idx] && tokens[idx].href) {
       const urlHref = tokens[idx].href;
@@ -50,10 +56,25 @@ export default function remarkableExternalLink(md: Remarkable, options: types.co
         if (configHosts.length === 0 || configHosts.indexOf(origin) === -1) {
           // eslint-disable-next-line max-len
           result = result.replace('>', ' target="' + finalConfig.target + '" rel="' + finalConfig.rel + '">');
+          externalLink = true;
         }
       }
     }
 
+    linkExternalStack.push(externalLink);
+    if (externalLink || !finalConfig.externalOnly)
+        result = (options.beforeLink || "") + result + (options.beforeLinkText || "");
+
     return result;
+  };
+
+  md.renderer.rules.link_close = function (tokens, idx, ...args) {
+      let result = defaultCloseRender(tokens, idx, ...args);
+
+      const externalLink = linkExternalStack.pop();
+      if (externalLink || !finalConfig.externalOnly)
+          result = (options.afterLinkText || "") + result + (options.afterLink || "");
+
+      return result;
   };
 }

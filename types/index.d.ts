@@ -7,9 +7,15 @@ export type configOptions = {
   host?: string;
   target?: string;
   rel?: string;
+  externalOnly?: boolean;
+  beforeLink?: string;
+  beforeLinkText?: string;
+  afterLinkText?: string;
+  afterLink?: string;
 };
 
 export type defaultOptions = {
   rel: string;
   target: string;
+  externalOnly: boolean;
 };

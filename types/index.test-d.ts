@@ -16,6 +16,14 @@ const singleHost = {
   'hosts': ['http://example.com']
 };
 
+const insertText = {
+  'externalOnly': false,
+  'beforeLink': '[',
+  'beforeLinkText': '-= ',
+  'afterLinkText': ' =-',
+  'afterLink': '] (ext)',
+};
+
 if (singleHost) {
   md.use(remarkableExternalLink, singleHost);
   md.render(testString);
@@ -23,5 +31,10 @@ if (singleHost) {
 
 if (multipleHosts) {
   md.use(remarkableExternalLink, multipleHosts);
+  md.render(testString);
+}
+
+if (insertText) {
+  md.use(remarkableExternalLink, insertText);
   md.render(testString);
 }
