@@ -94,7 +94,7 @@ to
 ## Parameters
 
 |   Attributes   |  Type  | Required |             Default            | Description                                                                      |
-|:--=-----------:|:------:|:--------:|:------------------------------:|----------------------------------------------------------------------------------|
+|:--------------:|:------:|:--------:|:------------------------------:|----------------------------------------------------------------------------------|
 |     hosts      |  Array |    No    |              []                | Site hostname(s) to detect external links.                                       |
 |     host       | String |    No    |              null              | Single site hostname( to detect external links (ignored if hosts is provided)    |
 |    target      | String |    No    |            `_blank`            | Specifies where to open the linked document.                                     |
