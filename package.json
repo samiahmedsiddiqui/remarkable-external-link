@@ -43,7 +43,7 @@
     "@typescript-eslint/eslint-plugin": "5.12.1",
     "@typescript-eslint/parser": "5.12.1",
     "eslint": "8.9.0",
-    "mocha": "9.2.1",
+    "mocha": "9.2.2",
     "remarkable": "2.0.1",
     "tsd": "0.19.1",
     "typescript": "4.5.5"
