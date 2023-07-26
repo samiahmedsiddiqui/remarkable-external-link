@@ -4,9 +4,8 @@ branches:
 dist: xenial
 language: node_js
 node_js:
-  - 12
-  - 14
   - 16
+  - 18
   - node
 os:
   - linux
