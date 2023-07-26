@@ -37,6 +37,9 @@
   },
   "homepage": "https://github.com/samiahmedsiddiqui/remarkable-external-link#readme",
   "runkitExampleFilename": "runkitExample.js",
+  "dependencies": {
+    "detect-external-link": "1.0.1"
+  },
   "devDependencies": {
     "@types/node": "20.4.4",
     "@types/remarkable": "2.0.3",

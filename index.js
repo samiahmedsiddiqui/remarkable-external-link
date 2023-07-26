@@ -1,9 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const url_1 = require("url");
+const detect_external_link_1 = __importDefault(require("detect-external-link"));
 const linkExternalStack = [];
 function remarkableExternalLink(md, options) {
-    const configHosts = [];
     const defaultOptions = {
         'rel': 'noopener',
         'target': '_blank',
@@ -12,42 +14,23 @@ function remarkableExternalLink(md, options) {
     const defaultOpenRender = md.renderer.rules.link_open;
     const defaultCloseRender = md.renderer.rules.link_close;
     const finalConfig = Object.assign({}, defaultOptions, options);
+    const externalLinkConfig = {
+        hosts: [],
+    };
     if (finalConfig.hosts) {
-        let singleHost;
-        for (singleHost of finalConfig.hosts) {
-            if (singleHost.indexOf('http://') === 0 || singleHost.indexOf('https://') === 0) {
-                configHosts.push(new url_1.URL(singleHost).hostname);
-            }
-            else {
-                configHosts.push(singleHost);
-            }
-        }
+        externalLinkConfig.hosts = finalConfig.hosts;
     }
     else if (finalConfig.host) {
-        if (finalConfig.host.indexOf('http://') === 0 || finalConfig.host.indexOf('https://') === 0) {
-            configHosts.push(new url_1.URL(finalConfig.host).hostname);
-        }
-        else {
-            configHosts.push(finalConfig.host);
-        }
+        externalLinkConfig.hosts = [finalConfig.host];
     }
     md.renderer.rules.link_open = function (tokens, idx, ...args) {
         let result = defaultOpenRender(tokens, idx, ...args);
         let externalLink = false;
         if (tokens[idx] && tokens[idx].href) {
             const urlHref = tokens[idx].href;
-            let origin = '';
-            if (urlHref.indexOf('http://') === 0 || urlHref.indexOf('https://') === 0) {
-                origin = new url_1.URL(urlHref).hostname;
-            }
-            else if (urlHref.indexOf('://') === 0) {
-                origin = new url_1.URL('https' + urlHref).hostname;
-            }
-            if (origin) {
-                if (configHosts.length === 0 || configHosts.indexOf(origin) === -1) {
-                    result = result.replace('>', ' target="' + finalConfig.target + '" rel="' + finalConfig.rel + '">');
-                    externalLink = true;
-                }
+            if ((0, detect_external_link_1.default)(urlHref, externalLinkConfig)) {
+                result = result.replace('>', ' target="' + finalConfig.target + '" rel="' + finalConfig.rel + '">');
+                externalLink = true;
             }
         }
         linkExternalStack.push(externalLink);

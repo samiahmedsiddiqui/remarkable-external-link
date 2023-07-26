@@ -1,6 +1,10 @@
 import { Remarkable } from 'remarkable';
 
-export default function remarkableExternalLink(md: Remarkable, options: configOptions): void;
+export default function remarkableExternalLink (md: Remarkable, options: configOptions): void;
+
+export type detectExternalLinkConfig = {
+  hosts: string[];
+};
 
 export type configOptions = {
   hosts?: [];
