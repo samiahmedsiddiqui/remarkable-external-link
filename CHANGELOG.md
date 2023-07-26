@@ -1,8 +1,14 @@
 # remarkable-external-link changelog
 
-## 2.1.0 - Feb 04, 2022
+## 2.2.0 - Jul 26, 2023
 
 ### Enhancement
+
+- Use other package for external link detection
+
+## 2.1.0 - Feb 04, 2022
+
+### Enhancements
 
 - Ability to insert Text/HTML inside and/or outside a link
 - Change `rel` default value from `nofollow noreferrer noopener` to `noopener`
