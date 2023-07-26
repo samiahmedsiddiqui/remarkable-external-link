@@ -15,7 +15,7 @@ export default function remarkableExternalLink (md: Remarkable, options: types.c
 
   const finalConfig: types.configOptions = Object.assign({}, defaultOptions, options);
 
-  let externalLinkConfig: types.detectExternalLinkConfig = {
+  const externalLinkConfig: types.detectExternalLinkConfig = {
     hosts: [],
   };
 

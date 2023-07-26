@@ -14,7 +14,7 @@ function remarkableExternalLink(md, options) {
     const defaultOpenRender = md.renderer.rules.link_open;
     const defaultCloseRender = md.renderer.rules.link_close;
     const finalConfig = Object.assign({}, defaultOptions, options);
-    let externalLinkConfig = {
+    const externalLinkConfig = {
         hosts: [],
     };
     if (finalConfig.hosts) {
