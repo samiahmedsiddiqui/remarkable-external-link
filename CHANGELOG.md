@@ -1,5 +1,11 @@
 # remarkable-external-link changelog
 
+## 2.2.1 - Aug 25, 2023
+
+### Bug
+
+- Resolve Protocol relative URL issue
+
 ## 2.2.0 - Jul 26, 2023
 
 ### Enhancement
